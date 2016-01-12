@@ -27,7 +27,7 @@
         options.onSet = function (e) {
           var that = this,
               args = arguments,
-              select = element.pickadate('picker').get('select'); // selected date
+              select = $(element).pickadate('picker').get('select'); // selected date
 
           scope.$evalAsync(function () {
             if (e.hasOwnProperty('clear')) {
@@ -82,17 +82,17 @@
           if (defaultOptions && defaultOptions.onClose) {
             defaultOptions.onClose.apply(this, arguments);
           }
-          element.blur();
+          $(element).blur();
         };
 
-        element.pickadate(options);
+        $(element).pickadate(options);
         function updateValue(newValue) {
           if (newValue) {
             var date = (newValue instanceof Date) ? newValue : new Date(newValue);
-            element.pickadate('picker').set('select', date.getTime());
+            $(element).pickadate('picker').set('select', date.getTime());
             model.pickADate.assign(scope, date);
           } else {
-            element.pickadate('picker').clear();
+            $(element).pickadate('picker').clear();
             model.pickADate.assign(scope, null);
           }
         }
@@ -100,18 +100,18 @@
         updateValue(model.pickADate(scope));
         var minDate = model.minDate(scope);
         var maxDate = model.maxDate(scope);
-        element.pickadate('picker').set('min', minDate ? minDate : false);
-        element.pickadate('picker').set('max', maxDate ? maxDate : false);
+        $(element).pickadate('picker').set('min', minDate ? minDate : false);
+        $(element).pickadate('picker').set('max', maxDate ? maxDate : false);
 
         scope.$watchGroup([attrs.pickADate, attrs.minDate, attrs.maxDate], function(newValues, oldValues) {
           var newValue = newValues[0], newMin = newValues[1], newMax = newValues[2],
               oldValue = oldValues[0], oldMin = oldValues[1], oldMax = oldValues[2];
 
           if (newMin !== oldMin) {
-            element.pickadate('picker').set('min', newValues[1] ? newValues[1] : false);
+            $(element).pickadate('picker').set('min', newValues[1] ? newValues[1] : false);
           }
           if (newMax !== oldMax) {
-            element.pickadate('picker').set('max', newValues[2] ? newValues[2] : false);
+            $(element).pickadate('picker').set('max', newValues[2] ? newValues[2] : false);
           }
           if (newValue !== oldValue) {
             updateValue(newValues[0]);
@@ -143,7 +143,7 @@
         options.onSet = function (e) {
           var that = this,
               args = arguments,
-              select = element.pickatime('picker').get('select'); // selected date
+              select = $(element).pickatime('picker').get('select'); // selected date
 
           scope.$evalAsync(function () {
             if (e.hasOwnProperty('clear')) {
@@ -201,18 +201,18 @@
           if (defaultOptions && defaultOptions.onClose) {
             defaultOptions.onClose.apply(this, arguments);
           }
-          element.blur();
+          $(element).blur();
         };
 
-        element.pickatime(options);
+        $(element).pickatime(options);
         function updateValue(newValue) {
           if (newValue) {
             var date = (newValue instanceof Date) ? newValue : new Date(newValue);
             var totalMins = date.getHours() * 60 + date.getMinutes();
-            element.pickatime('picker').set('select', totalMins);
+            $(element).pickatime('picker').set('select', totalMins);
             model.pickATime.assign(scope, date);
           } else {
-            element.pickatime('picker').clear();
+            $(element).pickatime('picker').clear();
             model.pickATime.assign(scope, null);
           }
         }
