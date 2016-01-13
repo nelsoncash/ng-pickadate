@@ -16,9 +16,5 @@
     "pickadate",
     "datepicker",
     "angularjs"
-  ],
-  "dependencies": {
-    "angular": "~1.4.5",
-    "pickadate": "~3.5.6"
-  }
+  ]
 }

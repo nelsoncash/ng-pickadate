@@ -11,21 +11,5 @@
     "url": "https://github.com/Toilal/ng-pickadate.git"
   },
   "ignore": [],
-  "dependencies": {
-    "angular": "~1.4.5",
-    "pickadate": "~3.5.6"
-  },
-  "main": "ng-pickadate.js",
-  "overrides": {
-    "pickadate": {
-      "main": [
-        "lib/picker.js",
-        "lib/picker.date.js",
-        "lib/picker.time.js",
-        "lib/themes/classic.css",
-        "lib/themes/classic.date.css",
-        "lib/themes/classic.time.css"
-      ]
-    }
-  }
+  "main": "ng-pickadate.js"
 }
